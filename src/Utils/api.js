@@ -10,8 +10,12 @@ export const getArticles = () => {
   });
 };
 export const getArticleByid = (id) => {
-  console.log(id);
   return newsApi.get(`/articles/${id}`).then((response) => {
     return response.data.articles;
   });
 };
+export const getComments = (article_id) => {
+  return newsApi.get(`/articles/${article_id}/comments`).then ((response) => {
+    return response.data.comments;
+  })
+}

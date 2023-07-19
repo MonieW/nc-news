@@ -3,8 +3,6 @@ import ArticleCard from "./Article-Card";
 import { getArticles } from "../Utils/api";
 import { useEffect } from "react";
 
-
-
 const Articleslist = () => {
   const [articles, setArticles] = useState([]);
 
@@ -28,7 +26,7 @@ const Articleslist = () => {
           topic,
           article_img_url,
           votes,
-          comments_count,
+          comment_count,
         } = article;
         return (
           <ArticleCard
@@ -38,7 +36,7 @@ const Articleslist = () => {
             article_img_url={article_img_url}
             author={author}
             article_id={article_id}
-            comments_count={comments_count}
+            comment_count={comment_count}
             votes={votes}
           />
         );
