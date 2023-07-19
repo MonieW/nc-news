@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function ArticleCard({
   article_id,
   author,
@@ -8,7 +10,7 @@ export default function ArticleCard({
   comments_count,
 }) {
   return (
-    
+    <Link to={`/articles/${article_id}`}>
     <section className="articlesCard">
       <h1 className="articletitle">{title}</h1> 
       Article id: {article_id}
@@ -22,6 +24,6 @@ export default function ArticleCard({
       <br/>
       Votes: {votes}
     </section>
-
+    </Link>
   );
 }
