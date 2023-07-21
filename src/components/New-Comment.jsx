@@ -26,23 +26,22 @@ const CommentForm = ({ article_id, setComments }) => {
         setDisabled(false);
         setNewComment({ body: "", author: "cooljmessy" });
         setComments((currentComments) => {
-          const updatedComments = [...currentComments, response];
+          const updatedComments = [response, ...currentComments];
           return updatedComments;
         });
       })
       .catch((err) => {
+
         setIsError(true);
       });
-  };
-  if (isError) {
-    return <p>Ah thats a pain! Something went wrong! </p>;
+    
   }
 
   return (
     <>
       <label className="newcomment">Have your say!</label>
-      <form onSubmit={handleSubmit} className="comment-form">
-        <label htmlFor="comment-box" className="comment-label"></label>
+      <form onSubmit={handleSubmit} className="comment-form" >
+        <label htmlFor="comment-box" className="comment-label"> </label>
         <textarea
           name="comment" required
           id="comment-box"
@@ -51,12 +50,18 @@ const CommentForm = ({ article_id, setComments }) => {
           value={newComment.body}
           onChange={handleChange}
         />
+        <br/>
+        {isError ? "Ah that's a pain! something went wrong, try again" : null}
         <br />
         <button disabled={isDisabled} className="comment-button" type="submit">
           Post Away!
         </button>
+        
       </form>
+      
     </>
+    
   );
 };
+
 export default CommentForm;
