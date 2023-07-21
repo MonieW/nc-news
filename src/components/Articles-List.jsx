@@ -5,16 +5,23 @@ import { useEffect } from "react";
 
 const Articleslist = () => {
   const [articles, setArticles] = useState([]);
+  const[loading, setloading] = useState(true);
 
   useEffect(() => {
+    setloading(true);
     getArticles()
       .then((fetchedArticles) => {
         setArticles(fetchedArticles);
+        setloading(false);
       })
       .catch((error) => {
         console.log(error);
       });
   }, []);
+
+  if(loading) {
+    return <h3 className="loading"> Be there in a sec!</h3>
+  }
 
   return (
     <ul className="articleslist">
