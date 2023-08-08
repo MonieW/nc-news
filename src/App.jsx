@@ -10,13 +10,14 @@ import { Routes, Route } from "react-router-dom";
 const App = () => {
   return (
     <>
-      <Header />
-      <Navigation />
+    <Header />
+    <Navigation />
       
       <Routes>
-        <Route path="/articles" element={<ArticlesList />} />
+        <Route path="/" element={<ArticlesList />} />
         <Route path="/articles/:article_id" element={<ArticleById />} />
       </Routes>
+     
     </>
   );
 };
